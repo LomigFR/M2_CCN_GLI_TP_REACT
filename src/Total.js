@@ -1,19 +1,14 @@
 import React, { Component } from 'react';
-import './Total.css';
 
-export class Total extends Component{
-    /*constructor(props){
-        super(props)
-    }*/
+export class Total extends Component {
 
-    render(){
-        return(
-            <div>
+    render() {
+        return (
+            <div className="totalDiv">
                 <label className="totalText">Total to display : </label>
-                <label className="total"></label>
+                <label className="total">{this.props.displayTotal}</label>
             </div>
         )
-
     }
 }
 

@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  margin: auto;
+  width: 200px;
 }
 
 .App-logo {
@@ -21,4 +23,41 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.filterDiv {
+   background-color: rgb(17, 0, 255);
+   color:   rgb(255, 255, 255);
+   font-size: 1.2em;
+   text-align: center;
+   margin: auto;
+}
+
+.listOfElements {
+  background-color: rgb(255, 255, 255);
+   color:   rgb(0, 0, 0);
+   font-size: 1em;
+   text-align: center;
+   margin: auto;
+}
+
+.addDiv{
+  background-color: rgb(187, 184, 184);
+   color:   rgb(0, 0, 0);
+   font-size: 1em;
+   text-align: center;
+}
+
+.totalDiv{
+  background-color: rgb(17, 0, 255);
+  color:   rgb(255, 255, 255);
+  font-size: 1.2em;
+  text-align: center;
+}
+
+#mainList{
+  background-color: rgb(17, 0, 255);
+  color:   rgb(255, 255, 255);
+  font-size: 1.2em;
+  text-align: center;
 }
