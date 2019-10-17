@@ -66,11 +66,6 @@ export class AddMore extends Component {
     });
   };
 
-  /*deleteFromMenuAndTab = idToDelete => {
-    this.props.deleteFromMenu(idToDelete);
-    this.props.deleteElement(idToDelete);
-  };*/
-
   render() {
     return (
       <div className="addDiv">

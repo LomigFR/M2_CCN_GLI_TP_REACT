@@ -1,11 +1,6 @@
 import React, { Component } from "react";
 
 export class Element extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
   render() {
     const { entry, index } = this.props;
     return (

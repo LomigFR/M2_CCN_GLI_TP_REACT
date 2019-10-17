@@ -6,6 +6,7 @@ export class List extends Component {
     const { tabElements } = this.props;
     return tabElements.map((elem, i) => (
       <Element
+        className="element"
         key={i}
         index={i}
         entry={elem}

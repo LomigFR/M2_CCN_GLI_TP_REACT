@@ -1,6 +1,12 @@
+#root {
+  margin: auto;
+  padding: auto;
+}
+
 .App {
   text-align: center;
   margin: auto;
+  padding: auto;
   width: 200px;
 }
 
@@ -21,43 +27,61 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .filterDiv {
-   background-color: rgb(17, 0, 255);
-   color:   rgb(255, 255, 255);
-   font-size: 1.2em;
-   text-align: center;
-   margin: auto;
+  background-color: rgb(17, 0, 255);
+  color: rgb(255, 255, 255);
+  font-size: 1.2em;
+  text-align: center;
+  margin: auto;
 }
 
 .listOfElements {
   background-color: rgb(255, 255, 255);
-   color:   rgb(0, 0, 0);
-   font-size: 1em;
-   text-align: center;
-   margin: auto;
+  color: rgb(0, 0, 0);
+  font-size: 1em;
+  margin: auto;
+  padding: auto;
 }
 
-.addDiv{
+.addDiv {
   background-color: rgb(187, 184, 184);
-   color:   rgb(0, 0, 0);
-   font-size: 1em;
-   text-align: center;
+  color: rgb(0, 0, 0);
+  font-size: 1em;
+  text-align: center;
 }
 
-.totalDiv{
+.totalDiv {
   background-color: rgb(17, 0, 255);
-  color:   rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
   font-size: 1.2em;
   text-align: center;
 }
 
-#mainList{
+#mainList {
   background-color: rgb(17, 0, 255);
-  color:   rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
   font-size: 1.2em;
   text-align: center;
+}
+
+tr {
+  text-align: center;
+  margin: auto;
+}
+
+td {
+  width: 100px;
+  margin: 0px;
+}
+
+.element {
+  margin: auto;
 }

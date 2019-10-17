@@ -7,17 +7,14 @@ import AddMore from "./AddMore";
 
 let tabObjects = [
   {
-    /*id: 1,*/
     object: "burger",
     price: 5
   },
   {
-    /*id: 2,*/
     object: "bus",
     price: 1.5
   },
   {
-    /*id: 3,*/
     object: "petrol",
     price: 50
   }
@@ -35,91 +32,83 @@ class App extends Component {
     super(props);
     this.state = {
       tabOfInfos: tabMain,
-      total: this.calculateTotal.toString,
-      tabOwners: tabOwners
+      selOwner: ""
     };
   }
 
-  filterElement = () => {
-    this.setState = {
-      tabOfInfos: this.state.tabOfInfos.filter(element => {
-        element.owner;
-      })
-    };
-    const tempTab = this.state.tabOfInfos;
-  };
-
   addElement = element => {
     this.setState({
-      tabOfInfos: [...this.state.tabOfInfos, element],
-      tabOwners: [...this.state.tabOwners, element.owner]
+      tabOfInfos: [...this.state.tabOfInfos, element]
     });
     console.log(this.state.tabOwners);
   };
 
+  /**
+   * To delete element (i.e. line of the tab) by element
+   */
   deleteSingleElement = idToDelete => {
     const { tabOfInfos } = this.state;
     const filteredArray = tabOfInfos.filter(
       (_element, index) => index !== idToDelete
     );
     this.setState({ tabOfInfos: filteredArray });
-    this.setState;
   };
 
-  /*deleteFromMenu = idToDelete => {
-    const filteredOwnerArray = tabOwners.filter(
-      element => element !== idToDelete
-    );
-    this.setState({ tabOwners: filteredOwnerArray });
-  };*/
-
+  /**
+   * To delete an element by keyword
+   */
   deleteElement = idToDelete => {
     const { tabOfInfos } = this.state;
     const filteredArray = tabOfInfos.filter(
       element => element.owner !== idToDelete
     );
     this.setState({ tabOfInfos: filteredArray });
-    const filteredOwnerArray = tabOwners.filter(
-      element => element !== idToDelete
-    );
-    this.setState({ tabOwners: filteredOwnerArray });
   };
 
-  /*searchingFor(word){
-    return function(e){
-      return e.owner.toLowerCase().includes(word.toLowerCase()) || !word
-    }
-  }*/
-
   calculateTotal = () => {
-    const tempTabOfInfos = this.state.tabOfInfos;
-    return tempTabOfInfos.reduce(element => {
-      this.state.total += element.price;
+    const tab = this.state.tabOfInfos;
+    return tab
+      .map(element => parseFloat(element.price) || 0)
+      .reduce((a, b) => a + b, 0);
+  };
+
+  getTabOwners = () => {
+    const owners = this.state.tabOfInfos.map(element => element.owner);
+    return [...new Set(owners)]; // suppression des doublons
+  };
+
+  selectOwner = newOwner => {
+    this.setState({
+      selOwner: newOwner
     });
   };
 
-  /*createTabOfOwners = () => {
-    this.state.tabOfInfos.filter(o =>
-      Object.values(o).some(v => v === o.owner)
+  getTabInfos = () => {
+    return this.state.tabOfInfos.filter(
+      element =>
+        this.state.selOwner === "" || element.owner === this.state.selOwner
     );
-  };*/
+  };
 
   render() {
     return (
       <div className="mainFrame">
-        <Filter className="filter" tableOfOwners={this.state.tabOwners} />
+        <Filter
+          className="filter"
+          onSelectOwner={this.selectOwner}
+          tableOfOwners={this.getTabOwners()}
+        />
         <List
           id="mainList"
-          tabElements={this.state.tabOfInfos}
+          tabElements={this.getTabInfos()}
           deleteSingleElement={this.deleteSingleElement}
         />
         <AddMore
           classeName="addMore"
           addElement={element => this.addElement(element)}
           deleteElement={this.deleteElement}
-          /*deleteFromMenu={this.deleteFromMenu}*/
         />
-        {/*<Total className="total" displayTotal={this.state.total} />*/}
+        <Total className="total" total={this.calculateTotal()} />
       </div>
     );
   }
