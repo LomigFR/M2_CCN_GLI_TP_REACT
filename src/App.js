@@ -5,6 +5,11 @@ import Filter from "./Filter";
 import Total from "./Total";
 import AddMore from "./AddMore";
 
+/**
+ * Guillaume_Collet_M2_CCN_2019_2020
+ * GLI_REACT_TP1
+ */
+
 let tabObjects = [
   {
     object: "burger",
